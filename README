@@ -1,0 +1,48 @@
+La fiecare comanda creez o conexiune cu serverul, pe care o inchid dupa ce comanda a fost finalizata.
+
+register:
+Primesc username si password;
+formez un string sub formatul JSON;
+creez request-ul de tip post si il timit la server, apoi afisez raspunsul.
+
+login:
+Sterg orice cookie de sesiune si token jwt(persoanele pot da login fiind logate pe alt cont, fara sa dea logout si pot vizualiza/sterge/aduga cartile unui alt cont);
+primesc username si password;
+formez un string sub formatul JSON;
+creez request-ul de tip post si il timit la server;
+afisez raspunsul;
+retin cookie-ul setat in urma logarii (in login_cookie).
+
+enter_library:
+Creez requestul necesar(de tipul GET, in care se afla si cookie) si il trimit la server;
+afisez raspunsul;
+retin jwt token-ul(in jwt).
+
+get_books:
+Creez requestul necesar(de tipul GET, in care se afla cookie si jwt) si il trimit la server;
+afisez raspunsul.
+
+get_book:
+Primesc un id;
+creez requestul necesar(de tipul GET, in care se afla cookie si jwt) si il trimit la server, pe path-ul definit de id;
+afisez raspunsul.
+
+add_book:
+Primesc title, author, genre, publisher si page_count(in aceasta ordine);
+formez un string sub formatul JSON(cu datele introduse mai sus, ordinea page_count si publisher se inverseaza);
+creez requestul necesar(in care se afla cookie si jwt) si il trimit la server;
+afisez raspunsul.
+
+delete_book:
+Primesc un id;
+creez requestul necesar(de tipul DELETE, in care se afla cookie si jwt) si il trimit la server, pe path-ul definit de id;
+afisez raspunsul.
+
+logout:
+Sterg login_cookie si jwt(cookie-ul de login si tokenul jwt cu care se pot vizualiza, sterge sau adauga carti);
+
+exit:
+Sterg login_cookie si jwt(cookie-ul de login si tokenul jwt cu care se pot vizualiza, sterge sau adauga carti, desi nu prea era necesar dar am zis why not?);
+ies din program.
+
+Daca introduc o instructiune nevalida(neexistenta in enunt), voi primii Bad command! ca mesaj.
